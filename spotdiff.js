@@ -148,7 +148,7 @@ const spot_diff = async (blob) => {
         const r = new ImageData(new Uint8ClampedArray([255, 0, 0, 255]), left_px.width, left_px.height);
         const g = new ImageData(new Uint8ClampedArray([0, 255, 0, 255]), left_px.width, left_px.height);
         const b = new ImageData(new Uint8ClampedArray([0, 0, 255, 255]), left_px.width, left_px.height);
-        console.log(r,g,b)
+        // console.log(r,g,b)
         left_ctx.putImageData(r, x, y);
         // diff_ctx.putImageData(g, x, y);
         // diff_ctx2.putImageData(b, x, y);
@@ -189,12 +189,12 @@ const spot_diff = async (blob) => {
 
 document.onpaste = (event) => {
   const items = (event.clipboardData ?? event.originalEvent.clipboardData).items;
-  console.log(event);
+//   console.log(event);
   for (const item of items) {
     if (item.kind === "file") {
-      console.log(item);
+    //   console.log(item);
       const blob = item.getAsFile();
-      console.log(blob);
+    //   console.log(blob);
       spot_diff(blob);
     }
   }
